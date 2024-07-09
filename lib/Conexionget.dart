@@ -15,13 +15,13 @@ class EventosPage extends StatefulWidget {
 class _EventosPageState extends State<EventosPage> {
   Evento? evento;
   TextEditingController idController = TextEditingController();
-  List<Evento> eventosPublicos = []; // Lista para eventos públicos
-  List<Evento> eventosPrivados = []; // Lista para eventos privados
+  List<Evento> eventosPublicos = []; 
+  List<Evento> eventosPrivados = []; 
 
   @override
   void initState() {
     super.initState();
-    fetchEventos(); // Cargar eventos al iniciar la página
+    fetchEventos(); 
   }
 
   void fetchEventos() async {
@@ -41,7 +41,6 @@ class _EventosPageState extends State<EventosPage> {
         print('Error al cargar eventos públicos: ${responsePublicos.statusCode}');
       }
 
-      // Llamada HTTP para obtener eventos privados (simulados)
       final responsePrivados =
           await http.get(Uri.parse('http://generar ipconfig :3007/api/eventos?tipo=privado'));
 
@@ -61,7 +60,6 @@ class _EventosPageState extends State<EventosPage> {
     }
   }
 
-  // Método para obtener un evento específico por ID
   void fetchData(int eventId) async {
     try {
       final response =
